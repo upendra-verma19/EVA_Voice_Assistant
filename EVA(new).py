@@ -28,7 +28,6 @@ def speak(audio):
 
 def wishMe():
 
-    speak("Hello! i am Eva,c your assistant ")
     hour = int(datetime.datetime.now().hour)
     if hour >= 0 and hour < 12:
         speak("Good Morning sir ! , how can i help you")
@@ -68,7 +67,7 @@ def takecommand():
 
 if __name__ == "__main__":
     wishMe()
-    crpath = "C:/Program Files/Google/Chrome/Application/chrome.exe %s" #Location for chrome
+    crpath = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s" #Location for chrome
 
     while True:
 
@@ -106,17 +105,11 @@ if __name__ == "__main__":
             url = "https://www.google.co.in/search?q=" + (str(query)) + "&oq="+(str(query))+"&gs_l=serp.12..0i71l8.0.0.0.6391.0.0.0.0.0.0.0.0..0.0....0...1c..64.serp..0.0.0.UiQhpfaBsuU"
             webbrowser.get(crpath).open(url)
             
-        elif 'play music' in query or "play song" in query:
-            speak("Here you go with songs")
-            music_dir = 'D:\English songs'
-            songs = os.listdir(music_dir)
-            random = os.startfile(os.path.join(music_dir, songs[1]))
-
 
 
         #File Dir
         elif 'open disk c' in query:
-            Cpath = 'C:\\'
+            Cpath = "C:\\"
             os.startfile(Cpath)
 
         elif 'open disk d' in query:
@@ -124,16 +117,12 @@ if __name__ == "__main__":
             os.startfile(Dpath)
 
         elif 'open disk e' in query:
-            Epath = 'E:\\'
+            Epath = "E:\\"
             os.startfile(Epath)
 
         elif 'the time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")
             speak(f"Sir, the time is {strTime}")
-
-        # elif 'open visual studio code' in query or 'open visual studio' in query:
-        #     codepath = "C:\Users\DELL\AppData\Local\Programs\Microsoft VS Code\Code.exe"
-        #     os.startfile(codepath)
 
         elif 'Telegram Desktop' in query or 'open telegram' in query:
             Telegrampath = "C:\\Telegram Desktop\\Telegram.exe"
@@ -162,11 +151,18 @@ if __name__ == "__main__":
              exit()
 
         elif "tell me your name" in query:
+            print("I am Eva. Your deskstop Assistant")
             speak("I am Eva. Your deskstop Assistant")
 
 
 
         # Commanding to do something
+        elif 'play music' in query or "play song" in query:
+            speak("Here you go with songs")
+            music_dir = 'D:\\Songs'                              #Change the directory
+            songs = os.listdir(music_dir)
+            random = os.startfile(os.path.join(music_dir, songs[1]))
+        
         elif "shutdown the computer" in query or "switch off the computer" in query or "shutdown" in query:
             speak("Do you want to shutdown your computer sir ?")
             while True:
