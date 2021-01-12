@@ -5,7 +5,6 @@ import webbrowser
 import datetime
 import os
 import time
-import json
 import pyjokes
 
 
